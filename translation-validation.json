@@ -1,0 +1,25 @@
+{
+  "total_keys": 1663,
+  "chinese_text_keys": 1643,
+  "chinese_coverage_percent": 98.8,
+  "unchanged_english_keys": [
+    "audioAnalysisLufs",
+    "cacheSizeOnly",
+    "downloadLossyAac",
+    "downloadLossyMp3",
+    "downloadLossyOpus128",
+    "downloadLossyOpus256",
+    "editMetadataFieldIsrc",
+    "extensionId",
+    "notifUpdateProgress",
+    "qualityHiResFlac",
+    "releaseTypeEp",
+    "storeRepoUrlHint",
+    "trackConvertActionLabelLossy",
+    "trackConvertDitherTriangular",
+    "trackConvertResamplerSoxr",
+    "trackConvertResamplerSwr"
+  ],
+  "errors": [],
+  "note": "Static checks only; Flutter compilation and on-device UI still require a compatible build host."
+}
