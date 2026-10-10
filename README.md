@@ -1,233 +1,78 @@
-<div align="center">
+# SpotiFLAC Mobile 简体中文版（非官方）
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/banner-readme-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="assets/readme/banner-readme-light.png">
-  <img alt="SpotiFLAC Mobile" src="assets/readme/banner-readme-light.png" width="650" height="auto">
-</picture>
+基于 **SpotiFLAC Mobile v5.1.0** 的简体中文补全版本，由本仓库维护者发布。**本项目不是官方中文版，也不代表原开发者或音乐平台。** 原项目和开发者署名见 [修改与许可说明](NOTICE_ZH.md)，原版 README 保留于 [README_UPSTREAM.md](README_UPSTREAM.md)。
 
-<p align="center">
-  <a href="https://trendshift.io/repositories/25971" target="_blank">
-    <img src="https://trendshift.io/api/badge/repositories/25971" alt="spotiflacapp%2FSpotiFLAC-Mobile | Trendshift" width="250" height="55">
-  </a>
-</p>
+## 下载与版本
 
-</div>
+👉 **[前往 Releases 下载中文版 APK](https://github.com/shanshi1/spotiflac-chinese/releases/latest)**
 
-<div align="center">
+首次公开版本为 **5.1.0-zh.1 / ARM64 / Lite**，APK 文件名 `SpotiFLAC-5.1.0-zh-arm64.apk`。仅提供 ARM64 安卓安装包，适用于小米 14 等 arm64-v8a 设备；32 位安卓和 iOS 不在本次发布范围。
 
-[![GitHub Release](https://img.shields.io/github/v/release/spotiflacapp/SpotiFLAC-Mobile?style=for-the-badge&logo=github)](https://github.com/spotiflacapp/SpotiFLAC-Mobile/releases)
-[![Crowdin](https://img.shields.io/badge/HELP%20TRANSLATE%20ON-CROWDIN-%2321252b?style=for-the-badge&logo=crowdin)](https://crowdin.com/project/spotiflac-mobile)
+| 项目 | 说明 |
+|---|---|
+| 基础源码 | 上游 v5.1.0，`0d13c9585c676c02451d0fdc8f564a1e632a24a0` |
+| APK 对应源码 | `aebe0eb517ade2d7d5fb6707f705496419ba5dbb`，后续首页文档更新不改变这个 APK |
+| 应用名称 | SpotiFLAC 中文版 |
+| 应用标识 | `com.zarz.spotiflac.zh`，可与原版并存 |
+| 文案 | 1663 个界面消息键，1643 个含中文，约 98.8%；格式名、网址和纯参数等保留原文 |
+| 构建类型 | Lite：保留上游下载与播放代码，省略可选 Discord SDK 集成 |
+| 当前验证 | 中文资源静态检查、云端 APK 编译、签名与 ARM64 后端检查通过 |
+| 实机状态 | 尚未完成安装、界面布局、下载与 USB DAC 兼容性测试 |
 
-[![Telegram Channel](https://img.shields.io/badge/CHANNEL-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/spotiflac)
-[![Telegram Community](https://img.shields.io/badge/COMMUNITY-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/spotiflac_chat)
+翻译为 AI 辅助补全，尚未完成全面人工审校。欢迎在 [Issues](https://github.com/shanshi1/spotiflac-chinese/issues) 报告译文错误或中文显示问题。
 
-</div>
+## 安装和首次使用
 
-## Screenshots
+1. 在 Releases 下载 `.apk`；Android 提示时，仅向实际安装来源授予“安装未知应用”权限。
+2. 安装后打开 **SpotiFLAC 中文版**。无需卸载官方原版；此版本使用独立应用数据，不会自动继承原版扩展、设置和数据库。
+3. 如果没有自动显示中文，进入 **设置 → 外观 → 应用语言 → 简体中文**。
+4. 重新选择下载目录并授权访问，在扩展商店添加所需仓库和扩展。
+5. 如需迁移设置，可先在原版导出备份后尝试在中文版恢复。迁移未实测；恢复可能覆盖中文版现有数据，操作前保留备份。不要公开分享包含登录凭据的备份。
 
-<p align="center">
-  <img src="assets/readme/1.jpg?v=2" width="200" />
-  <img src="assets/readme/2.jpg?v=2" width="200" />
-  <img src="assets/readme/3.jpg?v=2" width="200" />
-  <img src="assets/readme/4.jpg?v=2" width="200" />
-</p>
+维护方扩展清单（第三方仓库，不由本汉化项目运营）：
 
----
-
-## Extensions
-
-Extensions let the community add new music sources and features without waiting for app updates. When a streaming service API changes or a new source becomes available, extensions can be updated independently.
-
-### Installing Extensions
-
-1. Open the **Store** tab in the app
-2. On first launch, enter an **Extension Repository URL** when prompted
-3. Browse and install extensions with one tap
-4. Or download a `.spotiflac-ext` file and install manually via **Settings > Extensions**
-5. Configure extension settings if needed
-6. Set provider priority under **Settings > Extensions > Provider Priority**
-
-### Developing Extensions
-
-> [!NOTE]
-> Want to build your own extension? The
-> [documentation site](https://spotiflac.zarz.moe/docs) contains the API reference.
-
----
-
-## Development
-
-SpotiFLAC Mobile combines a Flutter/Dart UI, a Rust backend from
-[`rust_backend/`](rust_backend/), and thin Android/iOS platform bridges. Android
-Gradle builds the Rust native artifacts automatically. Tool versions are pinned in
-[`rust_backend/rust-toolchain.toml`](rust_backend/rust-toolchain.toml) and
-[`rust_backend/Cargo.lock`](rust_backend/Cargo.lock).
-
-Start with the [Contributing Guide](CONTRIBUTING.md) for the development setup,
-project boundaries, validation commands, and pull request checklist.
-
-Build production APKs with `bash scripts/build_android.sh --production`;
-this requires the staged Discord SDK and rejects Lite. CI releases use this
-mode and require Discord on both Android and iOS. Stage the official SDK with
-`scripts/setup_discord_sdk.sh` in the build environment before releasing;
-the SDK is not committed to the repository. A fresh hosted runner must be
-provided with the SDK before these release checks can pass.
-
-For development release APKs, use `bash scripts/build_android.sh`; use `--lite` to omit
-the optional Discord SDK while keeping playback and downloads. Full builds
-remain the default. To build only ARM64, set
-`SPOTIFLAC_RUST_ANDROID_ABIS=arm64-v8a`. The script uses the Flutter version in
-`.fvmrc` and audits the selected split APKs and universal APK. For iOS Lite,
-run CocoaPods and the app build with `SPOTIFLAC_DISCORD_SDK=0`; an existing Pods
-installation must be regenerated with that setting.
-
-Android release builds, including plain `flutter build apk --release`, keep Dart
-debug data in `build/symbols/android/app.<architecture>.symbols` to reduce APK
-size. The release script also uses `--obfuscate` to shorten internal Dart names;
-when building directly, add `--obfuscate --split-debug-info=build/symbols/android`
-for the smaller APK. An explicit `--split-debug-info` path overrides the default;
-plain `--analyze-size` builds retain Flutter's normal behavior. Keep these symbols
-with the matching APK before another local build replaces them. Decode a trace
-with `flutter symbolize --debug-info=<symbols-file> --input=crash.txt`.
-
-CI and release jobs retain an `android-symbols-…` artifact with the commit, APK
-SHA-256 hashes, Dart symbols, and R8 mapping, identified by run and attempt.
-Archive it before its 90-day retention expires and match the reported APK hash
-when choosing symbols; equal version numbers do not guarantee a match.
-
-For native iOS codec checks, see the [FFmpeg capability probe](scripts/README_ios_ffmpeg_capabilities.md).
-
----
-
-## Related Projects
-
-### [SpotiFLAC (Desktop)](https://github.com/afkarxyz/SpotiFLAC)
-Download music in true lossless FLAC from extension-provided sources on Windows, macOS & Linux.
-
-### [SpotiFLAC (Python Module)](https://github.com/BartolomeoRusso9/SpotiFLAC-Module-Version)
-Python library for SpotiFLAC integration, maintained by [@BartolomeoRusso9](https://github.com/BartolomeoRusso9).
-
----
-
-## FAQ
-
-<details>
-<summary><b>Why does the Store tab ask me to enter a URL?</b></summary>
-<br>
-
-Starting from version 3.8.0, SpotiFLAC Mobile uses a decentralized extension
-repository system. Extensions are hosted independently rather than on a
-built-in server, so anyone can create and host a compatible repository. Enter
-a repository URL in the Store tab to browse and install extensions.
-
-</details>
-
-<details>
-<summary><b>Why is my download failing with "Song not found"?</b></summary>
-<br>
-
-The track may not be available from your enabled providers. Try enabling more providers under **Settings > Extensions > Provider Priority**, or install additional download extensions from the Store.
-
-</details>
-
-<details>
-<summary><b>Why are some tracks downloading in lower quality?</b></summary>
-<br>
-
-Quality depends on what's available from the source and the installed download extension. Check each extension's quality options and service notes in the app.
-
-</details>
-
-<details>
-<summary><b>Can I download playlists?</b></summary>
-<br>
-
-Yes! Just paste the playlist URL in the search bar. The app will fetch all tracks and queue them for download.
-
-</details>
-
-<details>
-<summary><b>Why do I need to grant storage permission?</b></summary>
-<br>
-
-The app needs a writable destination for downloaded files. On Android, choose a
-folder with the system folder picker (SAF), or use the app-specific folder. If
-Android revokes a saved folder grant, select the folder again in Settings.
-
-</details>
-
-<details>
-<summary><b>Is this app safe?</b></summary>
-<br>
-
-SpotiFLAC Mobile is open source, so its code and build workflows can be
-inspected directly in this repository.
-
-</details>
-
-<details>
-<summary><b>Why is downloading not working in my country?</b></summary>
-<br>
-
-Some countries have restricted access to certain streaming service APIs. If downloads are failing, try using a VPN to connect through a different region.
-
-</details>
-
-<details>
-<summary><b>Can I add SpotiFLAC Mobile to AltStore or SideStore?</b></summary>
-<br>
-
-Yes! Add the official source to receive updates directly within the app. Copy this link:
-
-```
-https://raw.githubusercontent.com/spotiflacapp/SpotiFLAC-Mobile/refs/heads/main/apps.json
+```text
+https://raw.githubusercontent.com/spotiflacapp/SpotiFLAC-Extension/main/registry.json
 ```
 
-In AltStore/SideStore, go to **Browse > Sources**, tap **+**, and paste the link.
+也支持填写仓库地址 `https://github.com/spotiflacapp/SpotiFLAC-Extension`。扩展有独立权限和配置，账号要求、地区、音质及可用性依扩展和上游服务而定。扩展提供的字段和服务端错误可能仍是英文；歌曲、艺人、平台与技术名称没有强制翻译。
 
-</details>
+平台名称有时只指元数据或匹配来源。FLAC 格式或“无损”标记不能单独证明完整音源制作链从未经过有损处理，本仓库不作音源质量认证。
 
-> [!NOTE]
-> If SpotiFLAC Mobile is useful to you, consider supporting development:
->
-> [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/zarzet)
+## USB 独占输出
 
----
+本修改保留上游 USB 直连代码。入口：**设置 → 播放 → 高解析度与位准确音频 → 直连 USB 驱动**。需要连接兼容 USB DAC/耳机并允许 Android USB 授权；设置从下一首曲目生效。是否实际走独占路径，请看播放状态中的设备、采样率、位深及回退提示，不能只看开关。
 
-## Contributors
+启用前调低 DAC 或功放音量，手机音量键可能无法控制直连输出。普通 USB 耳机保持 DoP 和“允许固定音量 USB 输出”关闭，除非明确确认设备支持并具备安全音量控制。中文版本没有新增或认证设备兼容性。
 
-Thanks to everyone who has contributed to SpotiFLAC Mobile!
+## 更新、签名和已知限制
 
-<a href="https://github.com/spotiflacapp/SpotiFLAC-Mobile/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=spotiflacapp/SpotiFLAC-Mobile" />
-</a>
+- **此 APK 使用构建机的开发/测试签名，不是原作者签名。** 包名已分离，因此不能覆盖安装官方 APK。
+- 当前云端工作流不会保存或公开签名私钥，新一次构建可能产生不同签名。未来重新构建的包未必能直接覆盖本包；持续发行需要先配置固定的发布签名。更新前备份，勿因签名冲突直接删除唯一数据副本。
+- 应用内更新检查沿用上游行为，可能提示官方版本；汉化版的更新以本仓库 Releases 为准，不保证能通过原版更新通道更新。
+- 首次构建失败于 GitHub runner 磁盘不足；清理无关工具及降低 Rust 中间文件占用后重跑成功，没有因此改动音频处理代码。
+- 自动编译通过不等于下载接口、所有格式和所有 USB DAC 都在实机上通过。
 
-We also appreciate everyone who helped with [translations on Crowdin](https://crowdin.com/project/spotiflac-mobile), reported bugs, suggested features, and spread the word.
+## 校验安装包
 
-Interested in contributing? Check out the [Contributing Guide](CONTRIBUTING.md) to get started!
+Release 提供 `SHA256SUMS.txt`。本次 APK 为 **69,895,519 字节**，SHA-256：
 
----
+```text
+9bca5f7d953f90d5eba335ea1b19ae09877e32a45bca6bc402421337548889c7
+```
 
-## API Credits
+可以用 `sha256sum SpotiFLAC-5.1.0-zh-arm64.apk` 核对。此值验证下载文件与此次构建产物一致，不是对软件行为或音源的安全认证。
 
-| | | | | |
-|---|---|---|---|---|
-| [MusicDL](https://www.musicdl.me) | [LRCLib](https://lrclib.net) | [Paxsenix](https://lyrics.paxsenix.org) | [Cobalt](https://cobalt.tools) | [Song.link](https://song.link) |
-| [UniTune](https://github.com/FlazeIGuess/unitune-api) | [MusicBrainz](https://musicbrainz.org) | [Squigly](https://squigly.link) |  |  |
+## 自行编译与反馈
 
----
+见 [中文构建说明](README_ZH_BUILD.md) 和上游 [CONTRIBUTING.md](CONTRIBUTING.md)。手动 GitHub Actions 工作流位于 `.github/workflows/chinese-apk.yml`。它只构建，不自动公开 Release，也不包含个人账号或签名私钥。
 
-## Disclaimer
+中文检查：`python3 scripts/validate_chinese_translation.py`；资源生成：`flutter gen-l10n`。与正式发布相同的源码可从标签 `v5.1.0-zh.1` 获取。
 
-This repository and its contents are provided strictly for educational and research purposes. The software is provided "as-is" without warranty of any kind, express or implied, as stated in the [MIT License](LICENSE).
+反馈请说明：版本、手机/系统、所在页面、重现步骤。先遮挡日志或截图中的令牌、个人信息、私有服务器地址，不要上传账号密码或音乐文件。中文问题在本仓库反馈，原项目一般功能请先与官方版本对照。
 
-- No copyrighted content is hosted, stored, mirrored, or distributed by this repository.
-- Users must ensure that their use of this software is properly authorized and complies with all applicable laws, regulations, and third-party terms of service.
-- This software is provided free of charge by the maintainer. If you paid a third party for access to this software in its original form from this repository, you may have been misled or scammed. Any redistribution or commercial use by third parties must comply with the terms of the repository license. No affiliation, endorsement, or support by the maintainer is implied unless explicitly stated in writing.
-- SpotiFLAC Mobile is an independent project. It is not affiliated with, endorsed by, or connected to any other project or version on other platforms that may share a similar name. The maintainer of this repository has no control over or responsibility for third-party projects.
-- The author(s) disclaim all liability for any direct, indirect, incidental, or consequential damages arising from the use or misuse of this software. Users assume all risk associated with its use.
-- If you are a copyright holder or authorized representative and believe this repository infringes upon your rights, please contact the maintainer with sufficient detail (including relevant URLs and proof of ownership). The matter will be promptly investigated and appropriate action will be taken, which may include removal of the referenced material.
+## 许可和使用范围
 
-> [!TIP]
-> **Star the repo** to get notified about all new releases directly from GitHub.
+本仓库保留 **Copyright (c) 2026 zarzet** 和 [MIT LICENSE](LICENSE)，中文修改在同样的 MIT 条件下提供。第三方组件使用各自许可，详情见源码和应用内许可证。[原项目](https://github.com/spotiflacapp/SpotiFLAC-Mobile) 对本非官方修改不负责。
+
+本项目不托管歌曲、不内置个人音乐账号或凭据。使用者应遵守适用法律、版权与服务条款，仅下载和使用自己有权获取的内容。软件按现状提供，详见 MIT 许可的无担保条款。

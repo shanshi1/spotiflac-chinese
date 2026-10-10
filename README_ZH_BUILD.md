@@ -1,6 +1,6 @@
 # SpotiFLAC Mobile 5.1.0 简体中文补全版
 
-这是基于上游正式标签 v5.1.0（0d13c9585c676c02451d0fdc8f564a1e632a24a0）的非官方中文源码修改。保留上游 MIT 许可证。本目录不是已生成的 APK；只有构建成功后的 .apk 才能安装。
+这是基于上游正式标签 v5.1.0（0d13c9585c676c02451d0fdc8f564a1e632a24a0）的非官方中文源码修改。保留上游 MIT 许可证。首个 ARM64 Lite APK 已于 2026-10-10 18:25 UTC 成功编译，下载和首次使用见 [README.md](README.md)。以下是自行构建说明。
 
 ## 修改内容
 
@@ -14,7 +14,7 @@
 
 ## 重要状态
 
-准备环境是 Android 上的 Alpine aarch64 PRoot：没有 Flutter 和 Android SDK；原项目的 NDK 构建脚本要求 x86-64 主机工具链。本地 Java 启动也报可执行内存页错误。因此此处不能验证 APK 编译或手机界面；静态检查通过不能当作完整构建通过。
+源码汉化在 Android 上的 Alpine aarch64 PRoot 完成；APK 在 GitHub Actions 的 x86-64 Ubuntu 构建机编译。成功构建为 [run 38073717806](https://github.com/shanshi1/spotiflac-chinese/actions/runs/38073717806)，APK 对应提交 `aebe0eb517ade2d7d5fb6707f705496419ba5dbb`。APK 签名、ZIP CRC、ARM64 后端、下载 SHA-256 均已验证；安装、中文布局、下载和 USB DAC 实机兼容性尚未验证。
 
 ## 推荐构建：GitHub Actions
 
@@ -27,7 +27,7 @@
 
 GitHub Actions 工作流不需要原开发者签名或 Discord 解密密钥。它使用构建机生成的开发签名，产物仅包含 APK 和校验信息，不包含签名私钥。每次新构建机可能产生不同密钥，因此这份流程适合首次自用安装；要持续更新，应配置并保管自己的固定签名密钥，否则 Android 不能覆盖已有中文版本。
 
-该工作流只是准备好的构建方案，尚未触发或验证运行。工具版本完全遵循 v5.1.0：Flutter 3.47.5、Java 25、Rust 1.98.1、NDK 29.0.14206865、Android 37、Build Tools 37.0.0、CMake 3.22.1。构建环境必须能下载这些上游要求的版本；如果公共工具尚不可用或依赖源失效，仍需解决构建错误。
+该工作流已完成一次成功构建。工具版本遵循 v5.1.0：Flutter 3.47.5、Java 25、Rust 1.98.1、Rust 后端 NDK 29.0.14206865、Android 37、Build Tools 37.0.0、CMake 3.22.1；部分 Flutter 插件还使用 NDK 28.2.13676358。首次构建因 runner 磁盘不足失败，工作流已加入清理无关预装工具、保留需要的 NDK，以及关闭 Rust 开发调试/增量中间文件的措施。将来上游依赖源、工具版本或 runner 变化仍可能影响构建。
 
 ## 电脑本地构建
 
