@@ -14,7 +14,7 @@
 
 ## 重要状态
 
-源码汉化在 Android 上的 Alpine aarch64 PRoot 完成；APK 在 GitHub Actions 的 x86-64 Ubuntu 构建机编译。成功构建为 [run 38073717806](https://github.com/shanshi1/spotiflac-chinese/actions/runs/38073717806)，APK 对应提交 `aebe0eb517ade2d7d5fb6707f705496419ba5dbb`。APK 签名、ZIP CRC、ARM64 后端、下载 SHA-256 均已验证；安装、中文布局、下载和 USB DAC 实机兼容性尚未验证。
+源码汉化在 Android 上的 Alpine aarch64 PRoot 完成；APK 在 GitHub Actions 的 x86-64 Ubuntu 构建机编译。成功构建为 [run 38073717806](https://github.com/shanshi1/spotiflac-chinese/actions/runs/38073717806)，APK 对应提交 `aebe0eb517ade2d7d5fb6707f705496419ba5dbb`。APK 签名、ZIP CRC、ARM64 后端、下载 SHA-256 均已验证。发布者反馈本机小米 14（23127PN0CC / houji，arm64-v8a）、Android 16（API 36）、HyperOS OS3.0.303.0.WNCCNXM、简体中文环境测试通过；其他所有设备和系统环境均未测试，不保证功能可用。该反馈不代表全部功能、扩展或 USB DAC 的完整测试认证。
 
 ## 推荐构建：GitHub Actions
 
